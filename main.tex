@@ -1,0 +1,78 @@
+\documentclass[oneside]{book}
+\usepackage[a4paper]{geometry}                  % formato carta
+\usepackage[utf8]{inputenc}                     % riconoscere lettere
+\usepackage[italian]{babel}                     % lingua it
+
+% ---- PACCHETTI ----
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{physics}
+\usepackage{./scripts/own}
+
+\usepackage{graphicx}                           % per le foto
+\usepackage{tikz}                               % per altre immagini
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{fancyhdr}                           % per gli header belli
+    \pagestyle{fancy}                           %
+    \fancyhf{}                                  %
+    \setlength{\headheight}{15pt}               %
+\usepackage{emptypage}                          %
+\usepackage[]{fncychap}                         % per i capitoli belli (?)
+\usepackage{lettrine}                           % per le lettere belle a inizio capitolo
+\usepackage{yfonts}                             % per le lettere belle a inizio capitolo
+% \usepackage{psvectorian}
+% \usepackage{pstricks}
+
+\usepackage{lipsum}
+
+\usepackage{xurl}
+\usepackage{csquotes}
+\usepackage[backend=biber, style=numeric, autocite=superscript]{biblatex}
+    \addbibresource{misc/references.bib}
+    \DeclareCiteCommand{\supercite}[\mkbibsuperscript]{}
+        {\bibopenbracket%
+        \usebibmacro{citeindex}%
+        \usebibmacro{cite}%
+        \bibclosebracket}
+        {\supercitedelim}
+        {}
+    \let\cite=\autocite
+
+% ---- REIMPOSTAZIONI ----
+\numberwithin{equation}{chapter}                % Aggiunge il numero del capitolo all'equazione
+
+% ---- COMANDI PERSONALI ----
+%\newcommand{\N}{\mathbb{N}}
+%\newcommand{\Z}{\mathbb{Z}}
+%\newcommand{\E}{\mathbb{E}}
+%\newcommand{\R}{\mathbb{R}}
+%\newcommand{\C}{\mathbb{C}}
+%\newcommand{\LL}{\mathcal{L}}
+%
+%\newcommand{\func}[3]{#1\colon#2\rightarrow#3}
+%\newcommand{\myexp}[1]{e^{#1}}
+%\newcommand{\lagrange}[3]{\dv{t}\pdv{#1}{#3}-\pdv{#1}{#2}}
+%\newcommand{\mycomment}[1]{}
+
+\renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter.\ #1}{}}
+
+\begin{document}
+
+    \input{misc/titlepage}
+
+    \frontmatter
+        \tableofcontents
+        \input{misc/preface}
+
+    \mainmatter
+        \input{chapters/first}
+
+    \appendix
+        \input{chapters/app}
+
+    \printbibliography
+
+\end{document}
