@@ -1,14 +1,11 @@
-\documentclass[oneside]{book}
-\usepackage[a4paper]{geometry}                  % formato carta
+\documentclass[twoside]{book}
+\usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}                     % riconoscere lettere
 \usepackage[italian]{babel}                     % lingua it
+\usepackage[a4paper]{geometry}                  % formato carta
 
-% ---- PACCHETTI ----
-\usepackage{amsmath}
-\usepackage{amsfonts}
-\usepackage{amssymb}
-\usepackage{amsthm}
-\usepackage{physics}
+\author{P. Salumieri}
+
 \usepackage{./scripts/own}
 
 \usepackage{graphicx}                           % per le foto
@@ -23,8 +20,6 @@
 \usepackage[]{fncychap}                         % per i capitoli belli (?)
 \usepackage{lettrine}                           % per le lettere belle a inizio capitolo
 \usepackage{yfonts}                             % per le lettere belle a inizio capitolo
-% \usepackage{psvectorian}
-% \usepackage{pstricks}
 
 \usepackage{lipsum}
 
@@ -43,32 +38,33 @@
 
 % ---- REIMPOSTAZIONI ----
 \numberwithin{equation}{chapter}                % Aggiunge il numero del capitolo all'equazione
-
-% ---- COMANDI PERSONALI ----
-%\newcommand{\N}{\mathbb{N}}
-%\newcommand{\Z}{\mathbb{Z}}
-%\newcommand{\E}{\mathbb{E}}
-%\newcommand{\R}{\mathbb{R}}
-%\newcommand{\C}{\mathbb{C}}
-%\newcommand{\LL}{\mathcal{L}}
-%
-%\newcommand{\func}[3]{#1\colon#2\rightarrow#3}
-%\newcommand{\myexp}[1]{e^{#1}}
-%\newcommand{\lagrange}[3]{\dv{t}\pdv{#1}{#3}-\pdv{#1}{#2}}
-%\newcommand{\mycomment}[1]{}
-
-\renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter.\ #1}{}}
+\renewcommand{\chaptermark}[1]
+    {\markboth{%
+    \chaptername\ \thechapter.\ #1}{}}
+\renewcommand{\sectionmark}[1]
+    {\markright{%
+    \thesection.\ #1}}
 
 \begin{document}
+    \makeatletter
 
     \input{misc/titlepage}
 
     \frontmatter
+        \fancyhead[LE,RO]{\textbf{\thepage}}
+        \fancyhead[RE]{\nouppercase\leftmark}
+        \fancyhead[LO]{\nouppercase\rightmark}
+        \fancyfoot[LE]{\@author}
+        
         \tableofcontents
         \input{misc/preface}
+        
+        
+
 
     \mainmatter
         \input{chapters/first}
+        \chaptername
 
     \appendix
         \input{chapters/app}
