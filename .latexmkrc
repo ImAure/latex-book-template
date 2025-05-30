@@ -1,8 +1,8 @@
 # .latexmkrc
 
-# move all output to ./out/
-$out_dir = 'out';
-$aux_dir = 'out';
+# move all output to ./build/
+$out_dir = 'build';
+$aux_dir = 'build';
 
 # build with pdflatex and enable syncronization
 $pdflatex = 'pdflatex -interaction=nonstopmode -synctex=1 %O %S';
