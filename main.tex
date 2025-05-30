@@ -1,74 +1,52 @@
-\documentclass[twoside]{book}
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}                     % riconoscere lettere
-\usepackage[italian]{babel}                     % lingua it
-\usepackage[a4paper]{geometry}                  % formato carta
+\documentclass[twoside, a4paper, 11pt, final]{memoir}
+\usepackage[T1]{fontenc}         % [essential] font encoding
+\usepackage[utf8]{inputenc}      % [essential] input encoding
+\usepackage[english]{babel}      % [essential] most present language goes last
+\usepackage{geometry}            % [essential] for titlepage, as memoir doesn't allow changing the layout mid-document
 
-\author{P. Salumieri}
+\usepackage{layout}              % [remove] to print the \layout, useful when adjusting memoir's layout
+\usepackage{lipsum}              % [remove] for blind text
 
-\usepackage{./scripts/own}
+\usepackage[intlimits]{amsmath}  % [essential] maths
+\usepackage{amsfonts}            % [essential] maths
+\usepackage{amssymb}             % [essential] maths      
+\usepackage{bbm}                 % [essential] blackboard bold (for Real nummbers set, identiry matrix and such)
+\usepackage{physics}             % [essential] physics notation (matrices, derivatives, bra--kets etc)
+\usepackage{tensor}              % [essential] for tensor notation, better indeces in both displaystyle and inline math
+\usepackage{siunitx}             % [essential] for measure units
+\usepackage{amsthm}              % [useful]    for theorem environments (to be defined)
+\usepackage[version = 4]{mhchem} % [useful]    for chemistry and nuclear physics reactions
 
-\usepackage{graphicx}                           % per le foto
-\usepackage{tikz}                               % per altre immagini
-\usepackage{enumitem}
-\usepackage{titlesec}
-\usepackage{fancyhdr}                           % per gli header belli
-    \pagestyle{fancy}                           %
-    \fancyhf{}                                  %
-    \setlength{\headheight}{15pt}               %
-\usepackage{emptypage}                          %
-\usepackage[]{fncychap}                         % per i capitoli belli (?)
-\usepackage{lettrine}                           % per le lettere belle a inizio capitolo
-\usepackage{yfonts}                             % per le lettere belle a inizio capitolo
+\usepackage{graphicx}            % [essential] \includegraphics
+\usepackage{enumitem}            % [essential] for better enumerates 
+\usepackage{caption}             % [useful]    in case of custom floats
+\usepackage{tikz}                % [useful]    check for dependencies before removing: pgf, pgfplots, listings 
+\usepackage{pgf}                 % [useful]    for tikz plots
+\usepackage{pgfplots}            % [useful]    for tikz plots
+\usepackage{listings}            % [useful]    for code, needs tikz
 
-\usepackage{lipsum}
+\usepackage{hyperref}            % [essential] hypertext references, clickable links
+\usepackage{lettrine}            % [useful]    to make cute initials
 
-\usepackage{xurl}
-\usepackage{csquotes}
-\usepackage[backend=biber, style=numeric, autocite=superscript]{biblatex}
-    \addbibresource{misc/references.bib}
-    \DeclareCiteCommand{\supercite}[\mkbibsuperscript]{}
-        {\bibopenbracket%
-        \usebibmacro{citeindex}%
-        \usebibmacro{cite}%
-        \bibclosebracket}
-        {\supercitedelim}
-        {}
-    \let\cite=\autocite
+\usepackage[backend = bibtex, style = numeric-comp]{biblatex}
+\usepackage{csquotes}            % [essential] bibliography material
+\usepackage{xurl}                   
 
-% ---- REIMPOSTAZIONI ----
-\numberwithin{equation}{chapter}                % Aggiunge il numero del capitolo all'equazione
-\renewcommand{\chaptermark}[1]
-    {\markboth{%
-    \chaptername\ \thechapter.\ #1}{}}
-\renewcommand{\sectionmark}[1]
-    {\markright{%
-    \thesection.\ #1}}
+% -=- SETTINGS -=-
+\author{P. Salumieri}            % this will be shown in footers
+\input{misc/settings}
+\usepackage{misc/packages/my-science-utils}
 
 \begin{document}
-    \makeatletter
-
     \input{misc/titlepage}
-
+    \pagestyle{book-style}
     \frontmatter
-        \fancyhead[LE,RO]{\textbf{\thepage}}
-        \fancyhead[RE]{\nouppercase\leftmark}
-        \fancyhead[LO]{\nouppercase\rightmark}
-        \fancyfoot[LE]{\@author}
-        
         \tableofcontents
-        \input{misc/preface}
-        
-        
-
-
+        % \input{chapters/preface.tex}
     \mainmatter
-        \input{chapters/first}
-        \chaptername
+        % \input{chapters/first.tex}
+        \appendix
 
-    \appendix
-        \input{chapters/app}
-
-    \printbibliography
-
+    \backmatter
+        % \printbibliography
 \end{document}
