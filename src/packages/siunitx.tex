@@ -1,0 +1,9 @@
+\usepackage{siunitx}
+
+% >> settings:
+
+\DeclareSIUnit{\clight}{\text{\ensuremath{c}}}
+
+\ExplSyntaxOn
+    \msg_redirect_name:nnn{siunitx}{physics-pkg}{none} % shut up the warning. \qty{} uses physics definition
+\ExplSyntaxOff

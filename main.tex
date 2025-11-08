@@ -1,52 +1,15 @@
 \documentclass[twoside, a4paper, 11pt, final]{memoir}
-\usepackage[T1]{fontenc}         % [essential] font encoding
-\usepackage[utf8]{inputenc}      % [essential] input encoding
-\usepackage[english]{babel}      % [essential] most present language goes last
-\usepackage{geometry}            % [essential] for titlepage, as memoir doesn't allow changing the layout mid-document
-
-\usepackage{layout}              % [remove] to print the \layout, useful when adjusting memoir's layout
-\usepackage{lipsum}              % [remove] for blind text
-
-\usepackage[intlimits]{amsmath}  % [essential] maths
-\usepackage{amsfonts}            % [essential] maths
-\usepackage{amssymb}             % [essential] maths      
-\usepackage{bbm}                 % [essential] blackboard bold (for Real nummbers set, identiry matrix and such)
-\usepackage{physics}             % [essential] physics notation (matrices, derivatives, bra--kets etc)
-\usepackage{tensor}              % [essential] for tensor notation, better indeces in both displaystyle and inline math
-\usepackage{siunitx}             % [essential] for measure units
-\usepackage{amsthm}              % [useful]    for theorem environments (to be defined)
-\usepackage[version = 4]{mhchem} % [useful]    for chemistry and nuclear physics reactions
-
-\usepackage{graphicx}            % [essential] \includegraphics
-\usepackage{enumitem}            % [essential] for better enumerates 
-\usepackage{caption}             % [useful]    in case of custom floats
-\usepackage{tikz}                % [useful]    check for dependencies before removing: pgf, pgfplots, listings 
-\usepackage{pgf}                 % [useful]    for tikz plots
-\usepackage{pgfplots}            % [useful]    for tikz plots
-\usepackage{listings}            % [useful]    for code, needs tikz
-
-\usepackage{hyperref}            % [essential] hypertext references, clickable links
-\usepackage{lettrine}            % [useful]    to make cute initials
-
-\usepackage[backend = bibtex, style = numeric-comp]{biblatex}
-\usepackage{csquotes}            % [essential] bibliography material
-\usepackage{xurl}                   
-
-% -=- SETTINGS -=-
-\usepackage{misc/packages/my-science-utils}
-\author{P. Salumieri}            % this will be shown in footers
-\input{misc/settings}
+\input{src/preamble}
+\author{P. Salumieri}
 
 \begin{document}
-    \input{misc/titlepage}
-    \pagestyle{book-style}
+    \input{src/contents/frontbackmatter/titlepage}
+    \pagestyle{book}
+
     \frontmatter
         \tableofcontents
-        % \input{chapters/preface.tex}
     \mainmatter
-        \input{chapters/first.tex}
         \appendix
-
     \backmatter
-        % \printbibliography
+        \printbibliography
 \end{document}

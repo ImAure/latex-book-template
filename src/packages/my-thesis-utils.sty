@@ -1,0 +1,78 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{src/packages/my-thesis-utils}
+
+\RequirePackage{babel}
+\RequirePackage{amsmath}
+\RequirePackage{amsfonts}
+\RequirePackage{amssymb}
+\RequirePackage{amsthm}
+\RequirePackage{bbm}
+\RequirePackage{physics}
+\RequirePackage{tensor}
+\RequirePackage{pifont}
+
+% STUFF
+\newcommand{\mybullet}{\ding{70}}
+% \newcommand{\myconj}{\text{\ding{66}}}
+\newcommand{\myconj}{\ddag}
+
+% MATHEMATICAL SYMBOLS
+\newcommand{\mcC}{\ensuremath{\mathcal{C}}}
+\newcommand{\mcP}{\ensuremath{\mathcal{P}}}
+\newcommand{\mcT}{\ensuremath{\mathcal{T}}}
+
+\newcommand{\CP}{\ensuremath{\mcC\mcP}}
+\newcommand{\CT}{\ensuremath{\mcC\mcT}}
+\newcommand{\PT}{\ensuremath{\mcP\mcT}}
+\newcommand{\CPT}{\ensuremath{\mcC\mcP\mcT}}
+
+% HAT OPERATORS
+\newcommand{\togglehat}{\hat}
+
+\newcommand{\hx}{\ensuremath{\togglehat{x}}}
+\newcommand{\hy}{\ensuremath{\togglehat{y}}}
+\newcommand{\hz}{\ensuremath{\togglehat{z}}}
+\newcommand{\hvr}{\ensuremath{\togglehat{\vb{r}}}}
+
+\newcommand{\hp}{\ensuremath{\togglehat{p}}}
+\newcommand{\hpx}{\ensuremath{\togglehat{p}_x}}
+\newcommand{\hpy}{\ensuremath{\togglehat{p}_y}}
+\newcommand{\hpz}{\ensuremath{\togglehat{p}_z}}
+\newcommand{\hvp}{\ensuremath{\togglehat{\vb{p}}}}
+
+\newcommand{\hS}{\ensuremath{\togglehat{S}}}
+\newcommand{\hSx}{\ensuremath{\togglehat{S}_x}}
+\newcommand{\hSy}{\ensuremath{\togglehat{S}_y}}
+\newcommand{\hSz}{\ensuremath{\togglehat{S}_z}}
+\newcommand{\hvS}{\ensuremath{\togglehat{\vb{S}}}}
+
+\newcommand{\hH}{\ensuremath{\togglehat{H}}}
+\newcommand{\hU}{\ensuremath{\togglehat{U}}}
+\newcommand{\hK}{\ensuremath{\togglehat{K}}}
+\newcommand{\hA}{\ensuremath{\togglehat{A}}}
+\newcommand{\hF}{\ensuremath{\togglehat{F}}}
+\newcommand{\hM}{\ensuremath{\togglehat{M}}}
+\newcommand{\hQ}{\ensuremath{\togglehat{Q}}}
+\newcommand{\hB}{\ensuremath{\togglehat{B}}}
+\newcommand{\hR}{\ensuremath{\togglehat{R}}}
+\newcommand{\hRl}{\ensuremath{\togglehat{R}_\lambda}}
+\newcommand{\hG}{\ensuremath{\togglehat{G}}}
+\newcommand{\hX}{\ensuremath{\togglehat{X}}}
+
+\newcommand{\hidM}{\ensuremath{\togglehat{\idM}}}
+\newcommand{\hzero}{\ensuremath{\togglehat{0}}}
+
+\newcommand{\hC}{\ensuremath{\mathcal{\togglehat{C}}}}
+\newcommand{\hP}{\ensuremath{\mathcal{\togglehat{P}}}}
+\newcommand{\hT}{\ensuremath{\mathcal{\togglehat{T}}}}
+
+\newcommand{\hCP}{\ensuremath{\hC\hP}}
+\newcommand{\hCT}{\ensuremath{\hC\hT}}
+\newcommand{\hPT}{\ensuremath{\hP\hT}}
+\newcommand{\hCPT}{\ensuremath{\hC\hP\hT}}
+
+\newcommand{\PTtransform}[1]{\ensuremath{\hPT\! {#1} \bqty*{\hPT}\!^{-1}}}
+\newcommand{\CPTtransform}[1]{\ensuremath{\hCPT {#1} \bqty*{\hCPT}\!^{-1}}}
+
+% ACRONYMS
+

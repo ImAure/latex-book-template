@@ -1,0 +1,48 @@
+
+%=================%
+%   PAGE LAYOUT   %
+%=================%
+
+\settrims{0pt}{0pt}
+\settypeblocksize{*}{1.1\lxvchars}{*}
+\setbinding{1.5cm}
+\setlrmargins{*}{*}{4}
+\setulmarginsandblock{1in}{*}{2}
+\checkandfixthelayout
+
+
+%=========================%
+%   HEADER & PAGESTYLES   %
+%=========================%
+\sideparmargin{outer}
+\setmarginnotes{0.1\foremargin}{0.7\foremargin}{\onelineskip}
+
+\setlength{\headwidth}{\textwidth}
+    \addtolength{\headwidth}{\marginparsep}
+    \addtolength{\headwidth}{\marginparwidth}
+
+\makepagestyle{book-style}
+    \makerunningwidth{book-style}{\headwidth}
+    \makeheadrule{book-style}{\headwidth}{\normalrulethickness}
+    \makeheadposition{book-style}{flushright}{flushleft}{flushright}{flushleft}
+    \makepsmarks{book-style}{%
+        \nouppercaseheads
+        \createmark{chapter}{both}{shownumber}{\chaptername\ }{.\ }
+        \createmark{section}{right}{shownumber}{}{.\ }
+        \createplainmark{toc}{both}{\contentsname}
+        \createplainmark{lof}{both}{\listfigurename}
+        \createplainmark{lot}{both}{\listtablename}
+        \createplainmark{bib}{both}{\bibname}
+        \createplainmark{index}{both}{\indexname}
+        \createplainmark{glossary}{both}{\glossaryname}    
+    }
+    \makeevenhead{book-style}{\bfseries\thepage}{}{\bfseries\leftmark}
+    \makeoddhead{book-style}{\bfseries\rightmark}{}{\bfseries \thepage}
+    \makeevenfoot{book-style}{}{}{\footnotesize \theauthor}
+    \makeoddfoot{book-style}{\footnotesize \theauthor}{}{}
+
+%\chapterstyle{hangnum}
+\aliaspagestyle{chapter}{empty} % toglie il numero di pagina nelle pagine con il nome del capitolo.
+\aliaspagestyle{part}{empty}
+
+\setsecnumdepth{subsection}
